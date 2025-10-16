@@ -20,7 +20,7 @@ COLAB_URL = "https://delaware-john-las-potter.trycloudflare.com/predict"
 async def forward_to_colab(file: UploadFile = File(...)):
     try:
         image_data = await file.read()
-        files = {'file': (file.filename, io.BytesIO(image_data), file.content_type)}
+        files = {'image': (file.filename, io.BytesIO(image_data), file.content_type)}
 
         print(f"📤 Enviando imagem '{file.filename}' para o Colab...")
         response = requests.post(COLAB_URL, files=files, timeout=60)
