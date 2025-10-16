@@ -2,6 +2,7 @@ from fastapi import FastAPI, File, UploadFile, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import requests
 import io
+import httpx
 
 app = FastAPI(title="Render Gateway API", version="1.0")
 
@@ -21,9 +22,9 @@ async def forward_to_colab(file: UploadFile = File(...)):
         image_data = await file.read()
         files = {'file': (file.filename, io.BytesIO(image_data), file.content_type)}
 
-        # Encaminha pro Colab
-        response = requests.post(COLAB_URL, files=files)
-        response.raise_for_status()
+        async with httpx.AsyncClient(timeout=60) as client:
+            response = await client.post(COLAB_URL, files=files)
+            response.raise_for_status()
 
         return response.json()
 
