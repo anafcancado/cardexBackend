@@ -13,7 +13,7 @@ app.add_middleware(
 )
 
 # ✅ Coloque aqui o link do ngrok ativo do Colab
-COLAB_URL = "https://demonstrate-remote-revealed-teach.trycloudflare.com/predict"
+COLAB_URL = "https://uniform-term-resolve-acute.trycloudflare.com/predict"
 
 
 @app.post("/predict")
