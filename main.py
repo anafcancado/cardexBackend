@@ -14,7 +14,7 @@ app.add_middleware(
 )
 
 # ✅ Coloque aqui o link do Cloudflare ativo do Colab
-COLAB_URL_BASE = "https://gary-platforms-grid-premiere.trycloudflare.com"
+COLAB_URL_BASE = "https://causing-relevance-output-ace.trycloudflare.com"
 COLAB_PREDICT_URL = f"{COLAB_URL_BASE}/predict"
 COLAB_PREDICT_BATCH_URL = f"{COLAB_URL_BASE}/predict_batch"
 
